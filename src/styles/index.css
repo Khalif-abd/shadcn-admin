@@ -85,3 +85,112 @@
     height: 0;
   }
 }
+
+/* Safe area for bottom navigation on iOS */
+@utility safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Telegram WebApp theme variables - Dark Blue Theme by default */
+:root {
+  --tg-theme-bg-color: #18222d;
+  --tg-theme-secondary-bg-color: #131415;
+  --tg-theme-text-color: #ffffff;
+  --tg-theme-hint-color: #b1c3d5;
+  --tg-theme-link-color: #62bcf9;
+  --tg-theme-button-color: #2ea6ff;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-accent-text-color: #2ea6ff;
+  --tg-theme-destructive-text-color: #ef5b5b;
+  --tg-theme-header-bg-color: #131415;
+  --tg-theme-section-bg-color: #18222d;
+  --tg-theme-section-header-text-color: #b1c3d5;
+  --tg-theme-bottom-bar-bg-color: #213040;
+  --tg-theme-subtitle-text-color: #b1c3d5;
+  --tg-theme-section-separator-color: #213040;
+  
+  /* Content Safe Area insets (Telegram UI: кнопки закрыть, назад) */
+  --tg-content-safe-area-inset-top: 0px;
+  --tg-content-safe-area-inset-bottom: 0px;
+  --tg-content-safe-area-inset-left: 0px;
+  --tg-content-safe-area-inset-right: 0px;
+  
+  /* Device Safe Area insets (notch, home indicator) */
+  --tg-safe-area-inset-top: 0px;
+  --tg-safe-area-inset-bottom: 0px;
+  --tg-safe-area-inset-left: 0px;
+  --tg-safe-area-inset-right: 0px;
+  
+  /* Logo colors */
+  --logo-chill-color: #7DD3C0;
+  --logo-guy-color: #B8D4E3;
+}
+
+/* Telegram theme classes */
+.tg-bg {
+  background-color: var(--tg-theme-bg-color, #18222d);
+}
+
+.tg-secondary-bg {
+  background-color: var(--tg-theme-secondary-bg-color, #131415);
+}
+
+.tg-text {
+  color: var(--tg-theme-text-color, #ffffff);
+}
+
+.tg-hint-text {
+  color: var(--tg-theme-hint-color, #b1c3d5);
+}
+
+.tg-accent-text {
+  color: var(--tg-theme-accent-text-color, #2ea6ff);
+}
+
+.tg-button-text {
+  color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+.tg-button-bg {
+  background-color: var(--tg-theme-button-color, #2ea6ff);
+}
+
+/* Glassmorphism component style */
+.bg-component {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(4px);
+  border-radius: 1.5rem;
+}
+
+/* Bottom bar style */
+.tg-bottom-bar {
+  background-color: var(--tg-theme-bottom-bar-bg-color, #213040);
+}
+
+/* Primary action button (Telegram themed) */
+.gradient-btn {
+  background: var(--tg-theme-button-color, #2ea6ff);
+  color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+.gradient-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(46, 166, 255, 0.3);
+}
+
+/* Border colors for dark theme */
+.border-tg {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Outline button style */
+.btn-outline-tg {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-outline-tg:hover {
+  background: rgba(255, 255, 255, 0.1);
+}

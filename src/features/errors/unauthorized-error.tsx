@@ -1,23 +1,55 @@
 import { useNavigate, useRouter } from '@tanstack/react-router'
-import { Button } from '@/components/ui/button'
+import { Lock, ArrowLeft, Home } from 'lucide-react'
+import { hapticFeedback } from '@/services/telegram'
 
 export function UnauthorisedError() {
   const navigate = useNavigate()
   const { history } = useRouter()
+  
   return (
-    <div className='h-svh'>
-      <div className='m-auto flex h-full w-full flex-col items-center justify-center gap-2'>
-        <h1 className='text-[7rem] leading-tight font-bold'>401</h1>
-        <span className='font-medium'>Unauthorized Access</span>
-        <p className='text-center text-muted-foreground'>
-          Please log in with the appropriate credentials <br /> to access this
-          resource.
+    <div className='h-svh tg-bg'>
+      <div className='m-auto flex h-full w-full flex-col items-center justify-center gap-3 px-6'>
+        <div 
+          className="w-20 h-20 rounded-full flex items-center justify-center mb-2"
+          style={{ backgroundColor: 'rgba(245, 158, 11, 0.15)' }}
+        >
+          <Lock className="h-10 w-10" style={{ color: '#f59e0b' }} />
+        </div>
+        <h1 className='text-6xl font-bold tg-text'>401</h1>
+        <span className='font-semibold text-lg tg-text'>Требуется авторизация</span>
+        <p className='text-center tg-hint-text text-sm'>
+          Пожалуйста, войдите в систему,<br />
+          чтобы получить доступ к этому ресурсу.
         </p>
-        <div className='mt-6 flex gap-4'>
-          <Button variant='outline' onClick={() => history.go(-1)}>
-            Go Back
-          </Button>
-          <Button onClick={() => navigate({ to: '/' })}>Back to Home</Button>
+        <div className='mt-6 flex gap-3 w-full max-w-xs'>
+          <button
+            onClick={() => {
+              hapticFeedback('light')
+              history.go(-1)
+            }}
+            className="flex-1 py-3 rounded-xl font-medium flex items-center justify-center gap-2"
+            style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.08)', 
+              border: '1px solid rgba(255, 255, 255, 0.15)' 
+            }}
+          >
+            <ArrowLeft className="h-4 w-4 tg-text" />
+            <span className="tg-text">Назад</span>
+          </button>
+          <button
+            onClick={() => {
+              hapticFeedback('light')
+              navigate({ to: '/' })
+            }}
+            className="flex-1 py-3 rounded-xl font-medium flex items-center justify-center gap-2"
+            style={{ 
+              backgroundColor: 'var(--tg-theme-button-color, #2ea6ff)',
+              color: 'var(--tg-theme-button-text-color, #ffffff)'
+            }}
+          >
+            <Home className="h-4 w-4" />
+            <span>На главную</span>
+          </button>
         </div>
       </div>
     </div>

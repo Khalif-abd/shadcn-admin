@@ -5,6 +5,27 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+/**
+ * Форматирует байты в читаемый формат
+ */
+export function formatBytes(bytes: number): string {
+  if (bytes === 0) return '0 ГБ'
+  
+  const gb = bytes / (1024 * 1024 * 1024)
+  
+  if (gb >= 1) {
+    return `${gb.toFixed(2)} ГБ`
+  }
+  
+  const mb = bytes / (1024 * 1024)
+  if (mb >= 1) {
+    return `${mb.toFixed(2)} МБ`
+  }
+  
+  const kb = bytes / 1024
+  return `${kb.toFixed(2)} КБ`
+}
+
 export function sleep(ms: number = 1000) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
